@@ -1,4 +1,4 @@
-# Desafio Kotlin 2021
+# Desafio Kotlin - Mobile Android 2021
 
 Desafio em Kotlin realizado durante o curso Mobile Android 2021 da Digital House, onde foi proposto o desenvolvimento de um sistema de gerenciamento (CRUD) para a escola. Nele podemos:
   
@@ -6,6 +6,8 @@ Desafio em Kotlin realizado durante o curso Mobile Android 2021 da Digital House
   2. Registrar/Excluir Professores Titulares e Adjuntos
   3. Registrar/Excluir Cursos ou Alocar Professores para eles
   4. Matricular/Desmatricular Alunos e Consultar os dados de sua Matrícula
+
+Desenvolvi também, para o sistema, uma lógica que atribui um código, para as classes que o possuem, automáticamente. Para testar o programa basta rodar o file main.kt e divirta-se.
 
 Abaixo temos o diagrama que representa as relações existentes entre as classes modelo do projeto.
 

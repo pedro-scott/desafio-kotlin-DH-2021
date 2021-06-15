@@ -14,15 +14,15 @@ abstract class Professor(registrarCodigoProfessor: Boolean) {
 
 //        fun imprimirCodigosProfessoresAtivos() = codigosProfessoresAtivos.forEach { print("$it ") }
 //        fun imprimirCodigosProfessoresExcluidos() = codigosProfessoresExcluidos.forEach { print("$it ") }
-
-        // Remove o código informado da lista codigosProfessoresAtivos e add na lista codigosProfessoresExcluidos.
-        fun removerDeCodigosProfessoresAtivos(codigo: Int) : Boolean =
-            if (codigosProfessoresAtivos.contains(element = codigo)) {
-                codigosProfessoresAtivos.remove(element = codigo)
-                codigosProfessoresExcluidos.add(element = codigo)
-                true
-            } else false
     }
+
+    // Remove o código informado da lista codigosProfessoresAtivos e add na lista codigosProfessoresExcluidos.
+    fun removerDeCodigosProfessoresAtivos(codigo: Int) : Boolean =
+        if (codigosProfessoresAtivos.contains(element = codigo)) {
+            codigosProfessoresAtivos.remove(element = codigo)
+            codigosProfessoresExcluidos.add(element = codigo)
+            true
+        } else false
 
     var codigoProfessor = codigoProfessorDisponivel
         private set

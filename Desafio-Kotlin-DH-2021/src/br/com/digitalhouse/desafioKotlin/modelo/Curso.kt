@@ -19,15 +19,15 @@ class Curso(
 
 //        fun imprimirCodigosCursosAtivos() = codigosCursosAtivos.forEach { print("$it ") }
 //        fun imprimirCodigosCursosExcluidos() = codigosCursosExcluidos.forEach { print("$it ") }
-
-        // Remove o código informado da lista codigosCursosAtivos e add na lista codigosCursosExcluidos.
-        fun removerDeCodigosCursosAtivos(codigo: Int) : Boolean =
-            if (codigosCursosAtivos.contains(element = codigo)) {
-                codigosCursosAtivos.remove(element = codigo)
-                codigosCursosExcluidos.add(element = codigo)
-                true
-            } else false
     }
+
+    // Remove o código informado da lista codigosCursosAtivos e add na lista codigosCursosExcluidos.
+    fun removerDeCodigosCursosAtivos(codigo: Int) : Boolean =
+        if (codigosCursosAtivos.contains(element = codigo)) {
+            codigosCursosAtivos.remove(element = codigo)
+            codigosCursosExcluidos.add(element = codigo)
+            true
+        } else false
 
     var codigoCurso = codigoCursoDisponivel
         private set

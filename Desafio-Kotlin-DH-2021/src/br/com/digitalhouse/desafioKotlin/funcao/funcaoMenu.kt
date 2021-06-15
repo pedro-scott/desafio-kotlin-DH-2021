@@ -25,7 +25,8 @@ val menu2: Unit get() =
             |1 - Registrar um Aluno no sistema
             |2 - Excluir um Aluno registrado no sistema
             |3 - Listar os Alunos registrados no sistema
-            |4 - Voltar ao menu anterior
+            |4 - Listar os últimos 10 Alunos excluidos do sistema
+            |5 - Voltar ao menu anterior
             |
             |Escolha uma opção: 
         """.trimMargin()
@@ -40,7 +41,8 @@ val menu3: Unit get() =
             |2 - Registrar um Professor Adjunto no sistema
             |3 - Excluir um Professor registrado no sistema
             |4 - Listar os Professores registrados no sistema
-            |5 - Voltar ao menu anterior
+            |5 - Listar os últimos 10 Professores excluídos do sistema
+            |6 - Voltar ao menu anterior
             |
             |Escolha uma opção: 
         """.trimMargin()
@@ -55,7 +57,8 @@ val menu4: Unit get() =
             |2 - Alocar Professores para um Curso registrado no sistema
             |3 - Excluir um Curso registrado no sistema
             |4 - Listar os Cursos registrados no sistema
-            |5 - Voltar ao menu anterior
+            |5 - Listar os últimos 10 Cursos excluídos do sistema
+            |6 - Voltar ao menu anterior
             |
             |Escolha uma opção: 
         """.trimMargin()
@@ -70,7 +73,8 @@ val menu5: Unit get() =
             |2 - Consultar a Matrícula de um Aluno registrado no sistema
             |3 - Desmatricular um Aluno registrado no sistema
             |4 - Listar as Matrículas registradas no sistema
-            |5 - Voltar ao menu anterior
+            |5 - Listar as últimas 10 Matrículas excluídas do sistema
+            |6 - Voltar ao menu anterior
             |
             |Escolha uma opção: 
         """.trimMargin()

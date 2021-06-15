@@ -4,9 +4,13 @@ import br.com.digitalhouse.desafioKotlin.funcao.divisor
 
 class DigitalHouseManager {
     private val alunos = mutableListOf<Aluno>()
+    private val alunosExcluidos = mutableListOf<Aluno>()
     private val professores = mutableListOf<Professor>()
+    private val professoresExcluidos = mutableListOf<Professor>()
     private val cursos = mutableListOf<Curso>()
+    private val cursosExcluidos = mutableListOf<Curso>()
     private val matriculas = mutableListOf<Matricula>()
+    private val matriculasExcluidas = mutableListOf<Matricula>()
 
     //Registra um curso na lista cursos da classe atual com base nos dados informados
     fun registrarCurso(
@@ -48,8 +52,10 @@ class DigitalHouseManager {
             return
         }
 
-        Curso.removerDeCodigosCursosAtivos(codigo = codigoCurso)
+        curso.removerDeCodigosCursosAtivos(codigo = codigoCurso)
         cursos.remove(element = curso)
+        if (alunosExcluidos.size == 10) alunosExcluidos.removeAt(index = 0)
+        cursosExcluidos.add(element = curso)
         println(curso)
         println("Excluído com sucesso :)")
     }
@@ -132,8 +138,10 @@ class DigitalHouseManager {
             return
         }
 
-        Professor.removerDeCodigosProfessoresAtivos(codigo = codigoProfessor)
+        professor.removerDeCodigosProfessoresAtivos(codigo = codigoProfessor)
         professores.remove(element = professor)
+        if (professoresExcluidos.size == 10) professoresExcluidos.removeAt(index = 0)
+        professoresExcluidos.add(element = professor)
         when (professor) {
             is ProfessorTitular -> println(professor)
             is ProfessorAdjunto -> println(professor)
@@ -185,8 +193,10 @@ class DigitalHouseManager {
 
         //Verifica se o aluno está matriculado e caso não esteja exclui ele do sistema
         matriculas.find { it.aluno == aluno } ?: kotlin.run {
-            Aluno.removerDeCodigosAlunosAtivos(codigo = codigoAluno)
-            alunos.remove(aluno)
+            aluno.removerDeCodigosAlunosAtivos(codigo = codigoAluno)
+            alunos.remove(element = aluno)
+            if (alunosExcluidos.size == 10) alunosExcluidos.removeAt(index = 0)
+            alunosExcluidos.add(element = aluno)
             println("Excluído com sucesso :)")
             return
         }
@@ -324,8 +334,10 @@ class DigitalHouseManager {
 
         //Verifica se o aluno possui mais cursos e exclui ele da DHManager, caso não tenha.
         if (matricula.nenhumCursoMatriculado) {
-            Matricula.removerDeCodigosMatriculasAtivas(codigo = matricula.codigoMatricula)
+            matricula.removerDeCodigosMatriculasAtivas(codigo = matricula.codigoMatricula)
             matriculas.remove(matricula)
+            if (matriculasExcluidas.size == 10) matriculasExcluidas.removeAt(index = 0)
+            matriculas.add(element = matricula)
             println("Matrícula excluída com sucesso :)")
         }
     }
@@ -404,6 +416,20 @@ class DigitalHouseManager {
         }
     }
 
+    //Imprime a lista alunosExcluidos da classe atual, que contém as últimas 10 exclusões.
+    val imprimirAlunosExcluidos: Unit get() {
+        if (alunosExcluidos.isEmpty()) {
+            println("Nenhum aluno foi excluido!")
+            divisor
+            return
+        }
+
+        alunosExcluidos.forEach {
+            println("$it")
+            if (it != alunosExcluidos.last()) println()
+        }
+    }
+
     //Imprime a lista professores da classe atual.
     val imprimirProfessores: Unit get() {
         if (professores.isEmpty()) {
@@ -415,6 +441,20 @@ class DigitalHouseManager {
         professores.forEach {
             println("$it")
             if (it != professores.last()) println()
+        }
+    }
+
+    //Imprime a lista professoresExcluidos da classe atual, que contém as últimas 10 exclusões.
+    val imprimirProfessoresExcluidos: Unit get() {
+        if (professoresExcluidos.isEmpty()) {
+            println("Nenhum professor foi excluido!")
+            divisor
+            return
+        }
+
+        professoresExcluidos.forEach {
+            println("$it")
+            if (it != professoresExcluidos.last()) println()
         }
     }
 
@@ -432,6 +472,20 @@ class DigitalHouseManager {
         }
     }
 
+    //Imprime a lista cursosExcluidos da classe atual, que contém as últimas 10 exclusões.
+    val imprimirCursosExcluidos: Unit get() {
+        if (cursosExcluidos.isEmpty()) {
+            println("Nenhum curso foi excluido!")
+            divisor
+            return
+        }
+
+        cursosExcluidos.forEach {
+            println("$it")
+            if (it != cursosExcluidos.last()) println()
+        }
+    }
+
     //Imprime a lista matriculas da classe atual.
     val imprimirMatriculas: Unit get() {
         if (matriculas.isEmpty()) {
@@ -443,6 +497,20 @@ class DigitalHouseManager {
         matriculas.forEach {
             println("$it")
             if (it != matriculas.last()) println()
+        }
+    }
+
+    //Imprime a lista matriculasExcluidas da classe atual, que contém as últimas 10 exclusões.
+    val imprimirMatriculasExcluidas: Unit get() {
+        if (matriculasExcluidas.isEmpty()) {
+            println("Nenhuma matrícula foi excluida!")
+            divisor
+            return
+        }
+
+        matriculasExcluidas.forEach {
+            println("$it")
+            if (it != matriculasExcluidas.last()) println()
         }
     }
 }

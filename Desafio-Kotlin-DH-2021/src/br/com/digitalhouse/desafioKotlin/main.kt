@@ -29,7 +29,7 @@ fun main() {
                     divisor
                     espacos
 
-                    if (opcao2 == null || opcao2 < 1 || opcao2 > 4) {
+                    if (opcao2 == null || opcao2 < 1 || opcao2 > 5) {
                         println("Opção Inválida :(")
                         divisor
                         espacos
@@ -70,9 +70,16 @@ fun main() {
                             dh.imprimirAlunos
                             espacos
                         }
+
+                        4 -> {
+                            println("*** Listar os últimos 10 Alunos excluidos do sistema ***\n")
+
+                            dh.imprimirAlunosExcluidos
+                            espacos
+                        }
                     }
 
-                } while (opcao2 != 4)
+                } while (opcao2 != 5)
             }
 
             2 -> {
@@ -81,7 +88,7 @@ fun main() {
                     opcao2 = readLine()?.toIntOrNull()
                     espacos
 
-                    if (opcao2 == null || opcao2 < 1 || opcao2 > 5) {
+                    if (opcao2 == null || opcao2 < 1 || opcao2 > 6) {
                         println("Opção Inválida :(")
                         divisor
                         espacos
@@ -147,9 +154,16 @@ fun main() {
                             dh.imprimirProfessores
                             espacos
                         }
+
+                        5 -> {
+                            println("*** Listar os últimos 10 Professores excluídos do sistema ***\n")
+
+                            dh.imprimirProfessoresExcluidos
+                            espacos
+                        }
                     }
 
-                } while (opcao2 != 5)
+                } while (opcao2 != 6)
             }
 
             3 -> {
@@ -158,7 +172,7 @@ fun main() {
                     opcao2 = readLine()?.toIntOrNull()
                     espacos
 
-                    if (opcao2 == null || opcao2 < 1 || opcao2 > 5) {
+                    if (opcao2 == null || opcao2 < 1 || opcao2 > 6) {
                         println("Opção Inválida :(")
                         divisor
                         espacos
@@ -220,9 +234,16 @@ fun main() {
                             dh.imprimirCursos
                             espacos
                         }
+
+                        5 -> {
+                            println("*** Listar os últimos 10 Cursos excluídos do sistema ***\n")
+
+                            dh.imprimirCursosExcluidos
+                            espacos
+                        }
                     }
 
-                } while (opcao2 != 5)
+                } while (opcao2 != 6)
             }
 
             4 -> {
@@ -231,7 +252,7 @@ fun main() {
                     opcao2 = readLine()?.toIntOrNull()
                     espacos
 
-                    if (opcao2 == null || opcao2 < 1 || opcao2 > 5) {
+                    if (opcao2 == null || opcao2 < 1 || opcao2 > 6) {
                         println("Opção Inválida :(")
                         divisor
                         espacos
@@ -289,9 +310,16 @@ fun main() {
                             dh.imprimirMatriculas
                             espacos
                         }
+
+                        5 -> {
+                            println("*** Listar as últimas 10 Matrículas excluídas do sistema ***\n")
+
+                            dh.imprimirMatriculasExcluidas
+                            espacos
+                        }
                     }
 
-                } while (opcao2 != 5)
+                } while (opcao2 != 6)
             }
 
             5 -> {

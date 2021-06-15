@@ -25,15 +25,15 @@ class Matricula(
 
 //        fun imprimirCodigosMatriculasAtivas() = codigosMatriculasAtivas.forEach { print("$it ") }
 //        fun imprimirCodigosMatriculasExcluidas() = codigosMatriculasExcluidas.forEach { print("$it ") }
-
-        // Remove o código informado da lista codigosMatriculasAtivas e add na lista codigosMatriculasExcluidas.
-        fun removerDeCodigosMatriculasAtivas(codigo: Int) : Boolean =
-            if (codigosMatriculasAtivas.contains(element = codigo)) {
-                codigosMatriculasAtivas.remove(element = codigo)
-                codigosMatriculasExcluidas.add(element = codigo)
-                true
-            } else false
     }
+
+    // Remove o código informado da lista codigosMatriculasAtivas e add na lista codigosMatriculasExcluidas.
+    fun removerDeCodigosMatriculasAtivas(codigo: Int) : Boolean =
+        if (codigosMatriculasAtivas.contains(element = codigo)) {
+            codigosMatriculasAtivas.remove(element = codigo)
+            codigosMatriculasExcluidas.add(element = codigo)
+            true
+        } else false
 
     var codigoMatricula = codigoMatriculaDisponivel
         private set

@@ -13,15 +13,15 @@ class Aluno(
 
 //        fun imprimirCodigosAlunosAtivos() = codigosAlunosAtivos.forEach { print("$it ") }
 //        fun imprimirCodigosAlunosExcluidos() = codigosAlunosExcluidos.forEach { print("$it ") }
-
-        // Remove o código informado da lista codigosAlunosAtivos.
-        fun removerDeCodigosAlunosAtivos(codigo: Int) : Boolean =
-            if (codigosAlunosAtivos.contains(element = codigo)) {
-                codigosAlunosAtivos.remove(element = codigo)
-                codigosAlunosExcluidos.add(element = codigo)
-                true
-            } else false
     }
+
+    // Remove o código informado da lista codigosAlunosAtivos.
+    fun removerDeCodigosAlunosAtivos(codigo: Int) : Boolean =
+        if (codigosAlunosAtivos.contains(element = codigo)) {
+            codigosAlunosAtivos.remove(element = codigo)
+            codigosAlunosExcluidos.add(element = codigo)
+            true
+        } else false
 
     var codigoAluno = codigoAlunoDisponivel
         private set

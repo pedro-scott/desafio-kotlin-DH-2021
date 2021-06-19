@@ -3,7 +3,7 @@ package br.com.digitalhouse.desafioKotlin.modelo
 class Curso(
     val nomeCurso: String,
     val qtdMaxAlunos: Int,
-    registrarCodigoCurso: Boolean = true
+    private val registrarCodigoCurso: Boolean = true
 ) {
     var titular: ProfessorTitular? = null
         private set
@@ -17,15 +17,22 @@ class Curso(
         private val codigosCursosAtivos = mutableListOf<Int>()
         private val codigosCursosExcluidos = mutableListOf<Int>()
 
-//        fun imprimirCodigosCursosAtivos() = codigosCursosAtivos.forEach { print("$it ") }
-//        fun imprimirCodigosCursosExcluidos() = codigosCursosExcluidos.forEach { print("$it ") }
+//        fun imprimirCodigosCursosAtivos() {
+//            print("Códigos Cursos Ativos: ")
+//            codigosCursosAtivos.forEach { print("$it ") }
+//        }
+
+//        fun imprimirCodigosCursosExcluidos() {
+//            print("Códigos Cursos Excluídos: ")
+//            codigosCursosExcluidos.forEach { print("$it ") }
+//        }
     }
 
     // Remove o código informado da lista codigosCursosAtivos e add na lista codigosCursosExcluidos.
-    fun removerDeCodigosCursosAtivos(codigo: Int) : Boolean =
-        if (codigosCursosAtivos.contains(element = codigo)) {
-            codigosCursosAtivos.remove(element = codigo)
-            codigosCursosExcluidos.add(element = codigo)
+    fun removerDeCodigosCursosAtivos() : Boolean =
+        if (codigosCursosAtivos.contains(element = this.codigoCurso) && registrarCodigoCurso) {
+            codigosCursosAtivos.remove(element = this.codigoCurso)
+            codigosCursosExcluidos.add(element = this.codigoCurso)
             true
         } else false
 

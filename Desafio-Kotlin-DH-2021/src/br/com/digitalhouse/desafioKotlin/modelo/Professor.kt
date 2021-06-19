@@ -1,6 +1,6 @@
 package br.com.digitalhouse.desafioKotlin.modelo
 
-abstract class Professor(registrarCodigoProfessor: Boolean) {
+abstract class Professor(private val registrarCodigoProfessor: Boolean) {
     abstract val nomeProfessor: String
     abstract val sobrenomeProfessor: String
     protected var tempoCasa = 0
@@ -12,15 +12,22 @@ abstract class Professor(registrarCodigoProfessor: Boolean) {
         private val codigosProfessoresAtivos = mutableListOf<Int>()
         private val codigosProfessoresExcluidos = mutableListOf<Int>()
 
-//        fun imprimirCodigosProfessoresAtivos() = codigosProfessoresAtivos.forEach { print("$it ") }
-//        fun imprimirCodigosProfessoresExcluidos() = codigosProfessoresExcluidos.forEach { print("$it ") }
+//        fun imprimirCodigosProfessoresAtivos() {
+//            print("Códigos Professores Ativos: ")
+//            codigosProfessoresAtivos.forEach { print("$it ") }
+//        }
+
+//        fun imprimirCodigosProfessoresExcluidos() {
+//            print("Códigos Professores Excluídos: ")
+//            codigosProfessoresExcluidos.forEach { print("$it ") }
+//        }
     }
 
     // Remove o código informado da lista codigosProfessoresAtivos e add na lista codigosProfessoresExcluidos.
-    fun removerDeCodigosProfessoresAtivos(codigo: Int) : Boolean =
-        if (codigosProfessoresAtivos.contains(element = codigo)) {
-            codigosProfessoresAtivos.remove(element = codigo)
-            codigosProfessoresExcluidos.add(element = codigo)
+    fun removerDeCodigosProfessoresAtivos() : Boolean =
+        if (codigosProfessoresAtivos.contains(element = this.codigoProfessor) && registrarCodigoProfessor) {
+            codigosProfessoresAtivos.remove(element = this.codigoProfessor)
+            codigosProfessoresExcluidos.add(element = this.codigoProfessor)
             true
         } else false
 

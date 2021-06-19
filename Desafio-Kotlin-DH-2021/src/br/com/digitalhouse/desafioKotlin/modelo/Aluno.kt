@@ -3,7 +3,7 @@ package br.com.digitalhouse.desafioKotlin.modelo
 class Aluno(
     val nomeAluno: String,
     val sobrenomeAluno: String,
-    registrarCodigoAluno: Boolean = true
+    private val registrarCodigoAluno: Boolean = true
 ) {
     //Companion responsável por controlar os códigos fornecidos aos alunos, armazenando os ativos e excluídos.
     companion object {
@@ -11,15 +11,22 @@ class Aluno(
         private val codigosAlunosAtivos = mutableListOf<Int>()
         private val codigosAlunosExcluidos = mutableListOf<Int>()
 
-//        fun imprimirCodigosAlunosAtivos() = codigosAlunosAtivos.forEach { print("$it ") }
-//        fun imprimirCodigosAlunosExcluidos() = codigosAlunosExcluidos.forEach { print("$it ") }
+//        fun imprimirCodigosAlunosAtivos() {
+//            print("Códigos Alunos Ativos: ")
+//            codigosAlunosAtivos.forEach { print("$it ") }
+//        }
+
+//        fun imprimirCodigosAlunosExcluidos() {
+//            print("Códigos Alunos Excluídos: ")
+//            codigosAlunosExcluidos.forEach { print("$it ") }
+//        }
     }
 
     // Remove o código informado da lista codigosAlunosAtivos.
-    fun removerDeCodigosAlunosAtivos(codigo: Int) : Boolean =
-        if (codigosAlunosAtivos.contains(element = codigo)) {
-            codigosAlunosAtivos.remove(element = codigo)
-            codigosAlunosExcluidos.add(element = codigo)
+    fun removerDeCodigosAlunosAtivos() : Boolean =
+        if (codigosAlunosAtivos.contains(element = this.codigoAluno) && registrarCodigoAluno) {
+            codigosAlunosAtivos.remove(element = this.codigoAluno)
+            codigosAlunosExcluidos.add(element = this.codigoAluno)
             true
         } else false
 

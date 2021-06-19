@@ -52,10 +52,12 @@ class DigitalHouseManager {
             return
         }
 
-        curso.removerDeCodigosCursosAtivos(codigo = codigoCurso)
+        curso.removerDeCodigosCursosAtivos()
         cursos.remove(element = curso)
+
         if (alunosExcluidos.size == 10) alunosExcluidos.removeAt(index = 0)
         cursosExcluidos.add(element = curso)
+
         println(curso)
         println("Excluído com sucesso :)")
     }
@@ -138,10 +140,12 @@ class DigitalHouseManager {
             return
         }
 
-        professor.removerDeCodigosProfessoresAtivos(codigo = codigoProfessor)
+        professor.removerDeCodigosProfessoresAtivos()
         professores.remove(element = professor)
+
         if (professoresExcluidos.size == 10) professoresExcluidos.removeAt(index = 0)
         professoresExcluidos.add(element = professor)
+
         when (professor) {
             is ProfessorTitular -> println(professor)
             is ProfessorAdjunto -> println(professor)
@@ -193,10 +197,12 @@ class DigitalHouseManager {
 
         //Verifica se o aluno está matriculado e caso não esteja exclui ele do sistema
         matriculas.find { it.aluno == aluno } ?: kotlin.run {
-            aluno.removerDeCodigosAlunosAtivos(codigo = codigoAluno)
+            aluno.removerDeCodigosAlunosAtivos()
             alunos.remove(element = aluno)
+
             if (alunosExcluidos.size == 10) alunosExcluidos.removeAt(index = 0)
             alunosExcluidos.add(element = aluno)
+
             println("Excluído com sucesso :)")
             return
         }
@@ -334,10 +340,12 @@ class DigitalHouseManager {
 
         //Verifica se o aluno possui mais cursos e exclui ele da DHManager, caso não tenha.
         if (matricula.nenhumCursoMatriculado) {
-            matricula.removerDeCodigosMatriculasAtivas(codigo = matricula.codigoMatricula)
+            matricula.removerDeCodigosMatriculasAtivas()
             matriculas.remove(matricula)
+
             if (matriculasExcluidas.size == 10) matriculasExcluidas.removeAt(index = 0)
             matriculas.add(element = matricula)
+
             println("Matrícula excluída com sucesso :)")
         }
     }

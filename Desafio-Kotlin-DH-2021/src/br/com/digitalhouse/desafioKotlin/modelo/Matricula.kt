@@ -5,7 +5,7 @@ import java.util.Date
 
 class Matricula(
     val aluno: Aluno,
-    registrarCodigoMatricula: Boolean = true
+    private val registrarCodigoMatricula: Boolean = true
 ) {
     private val cursosMatriculados = mutableListOf<Curso>()
     val data = formataData
@@ -23,15 +23,22 @@ class Matricula(
         private val codigosMatriculasAtivas = mutableListOf<Int>()
         private val codigosMatriculasExcluidas = mutableListOf<Int>()
 
-//        fun imprimirCodigosMatriculasAtivas() = codigosMatriculasAtivas.forEach { print("$it ") }
-//        fun imprimirCodigosMatriculasExcluidas() = codigosMatriculasExcluidas.forEach { print("$it ") }
+//        fun imprimirCodigosMatriculasAtivas() {
+//            print("Códigos Matrículas Ativas: ")
+//            codigosMatriculasAtivas.forEach { print("$it ") }
+//        }
+
+//        fun imprimirCodigosMatriculasExcluidas() {
+//            print("Códigos Matrículas Excluídas: ")
+//            codigosMatriculasExcluidas.forEach { print("$it ") }
+//        }
     }
 
     // Remove o código informado da lista codigosMatriculasAtivas e add na lista codigosMatriculasExcluidas.
-    fun removerDeCodigosMatriculasAtivas(codigo: Int) : Boolean =
-        if (codigosMatriculasAtivas.contains(element = codigo)) {
-            codigosMatriculasAtivas.remove(element = codigo)
-            codigosMatriculasExcluidas.add(element = codigo)
+    fun removerDeCodigosMatriculasAtivas() : Boolean =
+        if (codigosMatriculasAtivas.contains(this.codigoMatricula) && registrarCodigoMatricula) {
+            codigosMatriculasAtivas.remove(this.codigoMatricula)
+            codigosMatriculasExcluidas.add(this.codigoMatricula)
             true
         } else false
 

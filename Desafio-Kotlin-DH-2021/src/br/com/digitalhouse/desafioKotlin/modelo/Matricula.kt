@@ -81,18 +81,14 @@ class Matricula(
     }
 
     //Constroi uma string que representa os cursos matriculados e será usada na toString da classe atual.
-    private val toStringCursosMatriculados: String get() {
-        if (cursosMatriculados.isEmpty()) return "       Não existem cursos matriculados!"
-
-        val string = StringBuilder()
-
-        cursosMatriculados.forEach {
-            string.append(it.toStringMatricula)
-            if (it != cursosMatriculados.last()) string.append("\n\n")
+    private val toStringCursosMatriculados: String get() =
+        if (cursosMatriculados.isEmpty()) "       Não existem cursos matriculados!"
+        else {
+            cursosMatriculados.joinToString(separator = "") {
+                if (it != cursosMatriculados.last()) "${it.toStringMatricula}\n\n"
+                else it.toStringMatricula
+            }
         }
-
-        return string.toString()
-    }
 
     //Sobrescreve o toString da classe atual.
     override fun toString(): String =

@@ -142,7 +142,7 @@ class ProfessorAdjunto(
             |       Nome: $nomeProfessor
             |       Sobrenome: $sobrenomeProfessor
             |       Tempo de Casa: $tempoCasa meses
-            |       Horas de Monitoria: $horasMonitoria
+            |       Horas de Monitoria: $horasMonitoria horas
         """.trimMargin()
 
     //Formata uma string da classe atual para ser usada na classe Matricula.
@@ -152,6 +152,6 @@ class ProfessorAdjunto(
             |               Nome: $nomeProfessor
             |               Sobrenome: $sobrenomeProfessor
             |               Tempo de Casa: $tempoCasa meses
-            |               Horas de Monitoria: $horasMonitoria
+            |               Horas de Monitoria: $horasMonitoria horas
         """.trimMargin()
 }

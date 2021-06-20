@@ -344,7 +344,7 @@ class DigitalHouseManager {
             matriculas.remove(matricula)
 
             if (matriculasExcluidas.size == 10) matriculasExcluidas.removeAt(index = 0)
-            matriculas.add(element = matricula)
+            matriculasExcluidas.add(element = matricula)
 
             println("Matrícula excluída com sucesso :)")
         }

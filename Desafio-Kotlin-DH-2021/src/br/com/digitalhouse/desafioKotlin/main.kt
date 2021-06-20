@@ -140,7 +140,7 @@ fun main() {
                         3 -> {
                             println("*** Excluir um Professor registrado no sistema ***\n")
 
-                            print("Informe o código do aluno: ")
+                            print("Informe o código do professor: ")
                             val codigo = readLine()?.toIntOrNull()
 
                             println()

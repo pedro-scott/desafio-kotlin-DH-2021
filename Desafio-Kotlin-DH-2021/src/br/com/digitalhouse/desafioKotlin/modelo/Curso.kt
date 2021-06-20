@@ -75,18 +75,12 @@ class Curso(
     }
 
     //Constroi uma string que representa os alunos matriculados e será usada na toString da classe atual.
-    private val toStringAlunosMatriculados: String get() {
-        if (alunosMatriculados.isEmpty()) return "      Nenhum Aluno Matriculado no momento!"
-
-        val string = StringBuilder()
-
-        alunosMatriculados.forEach {
-            string.append(it.toStringCurso)
-            if (it != alunosMatriculados.last()) string.append("\n\n")
+    private val toStringAlunosMatriculados: String get() =
+        if (alunosMatriculados.isEmpty()) "      Nenhum Aluno Matriculado no momento!"
+        else alunosMatriculados.joinToString(separator = "") {
+            if (it != alunosMatriculados.last()) "${it.toStringCurso}\n\n"
+            else it.toStringCurso
         }
-
-        return string.toString()
-    }
 
     //Sobrescreve o toString da classe atual
     override fun toString(): String =
@@ -104,18 +98,12 @@ class Curso(
         """.trimMargin()
 
     //Constroi uma string que representa os alunos matriculados e será usada na toStringMatricula da classe atual.
-    private val toStringAlunosMatriculadosMatricula: String get() {
-        if (alunosMatriculados.isEmpty()) return "              Nenhum Aluno Matriculado no momento!"
-
-        val string = StringBuilder()
-
-        alunosMatriculados.forEach {
-            string.append(it.toStringCursoAlunosMatriculados)
-            if (it != alunosMatriculados.last()) string.append("\n\n")
+    private val toStringAlunosMatriculadosMatricula: String get() =
+        if (alunosMatriculados.isEmpty()) "              Nenhum Aluno Matriculado no momento!"
+        else alunosMatriculados.joinToString(separator = "") {
+            if (it != alunosMatriculados.last()) "${it.toStringCursoAlunosMatriculados}\n\n"
+            else it.toStringCursoAlunosMatriculados
         }
-
-        return string.toString()
-    }
 
     //Formata uma string da classe atual para ser usada na classe Matricula.
     val toStringMatricula: String get() =

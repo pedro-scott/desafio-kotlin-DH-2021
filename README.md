@@ -10,6 +10,10 @@ Desafio em Kotlin realizado durante o curso Mobile Android 2021 da Digital House
 
 Desenvolvi também, para o sistema, uma lógica que atribui um código, para as classes que o possuem, automáticamente. Para testar o programa basta rodar o file main.kt e divirta-se.
 
+[![Author](https://img.shields.io/static/v1?label=@author&message=Pedro%20Scott%20Developer&color=important)](https://github.com/pedro-scott)
+[![LinkedIn](https://img.shields.io/static/v1?label=@linkedin&message=@pedro-scott-dev&color=blue)](https://www.linkedin.com/in/pedro-scott-dev/)
+
+## ✏ Diagrama
 Abaixo temos o diagrama que representa as relações existentes entre as classes modelo do projeto.
 
 ![alt text](https://github.com/pedro-scott/desafio-kotlin-DH-2021/blob/main/desafio-kotlin-uml.png)
